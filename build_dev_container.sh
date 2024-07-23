@@ -43,7 +43,7 @@ setup_tools() {
 create_container() {
    image_name=${1,,}_image
    dev_home=/home/$uname
-   home_dir=${1,,}_home
+   home_dir=/home/${uname}/${1,,}_home
    hostname=${1^^}_CONT
    cont_name=${1,,}_cont
    docker container create -v "$home_dir:$dev_home" -it --hostname=$hostname --name=$cont_name $image_name
@@ -75,10 +75,10 @@ USAGE
 -n | --recreate-image: Recreates an docker image 
 -c | --create-container: Creates a container for the image
 -s | --start-container: Starts up a container
+-d | --delete: Delete the docker image and attached containers
 -D | --docker-file directory: Provide the Dockercontainer to be build
 -T | --tools-directory directroy: Provide the directory to the tools directory, setup script is named setup sh
 -h | --help: Show this help file
--d | --delete: Delete the docker image and attached containers
 '
 }
 
