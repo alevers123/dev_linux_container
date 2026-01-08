@@ -1,0 +1,28 @@
+{
+    "name": "DevelopmentContainerEnv",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "docker_dev_container_linux",
+    "workspaceFolder": "/home/aevers/project",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                //"asvetliakov.vscode-neovim",
+                "ms-python.python",
+                "charliermarsh.ruff",
+                "llvm-vs-code-extensions.vscode-clangd",
+                "ms-dotnettools.csharpier-vscode",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "clangd.path": "clangd", // Wird im PATH gefunden
+                "clangd.arguments": ["--query-driver=/usr/bin/arm-none-eabi-*"],
+                "python.formatting.provider": "none"
+                //"[python]": { "editor.defaultFormatter": "charliermarsh.ruff" }
+            }
+        }
+    },
+
+    "remoteUser": "aevers"
+}

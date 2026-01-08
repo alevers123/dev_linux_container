@@ -1,4 +1,6 @@
 FROM ubuntu:latest
+#RUN CODENAME=$(grep -m1 -Po 'ubuntu[^\s]*/\K\w+' /etc/apt/sources.list) && \
+#   sed -i "s/${CODENAME}/devel/g" /etc/apt/sources.list && \
 RUN apt-get update && apt-get install -y \
    neovim \
    zsh \
@@ -12,11 +14,23 @@ RUN apt-get update && apt-get install -y \
    iproute2\
    unzip\
    vifm \
-   gtkwave
+   gtkwave \
+   python3-venv \
+   software-properties-common \
+   dotnet-sdk-8.0 \
+   golang \
+   nodejs \
+   npm \
+   cmake \
+   gcc-arm-none-eabi \
+   python3-pynvim \
+   ripgrep \
+   fd-find 
 ARG uname
 ARG uid
 ARG gid
 ARG docker_guid
+ENV PATH="${HOME}/.local/share/nvim/mason/bin:${PATH}"
 #RUN mkdir /home/$uname
 #VOLUME /home/$uname
 COPY ./scripts /opt/scripts
