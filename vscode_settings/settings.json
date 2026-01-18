@@ -1,0 +1,253 @@
+{
+    "workbench.editor.limit.value": 2,
+    "workbench.editor.limit.enabled": true, 
+    "vim.easymotion": true,
+    "vim.leader": "Space",
+    "vim.hlsearch": false,
+    "vim.insertModeKeyBindingsNonRecursive": [{
+    // use jj to leave the insert mode  
+    "before": ["j", "j"],
+    "after": ["<ESC>"]
+  },
+  {
+    // use ctrl+h to move cursor left in insert mode
+    "before": ["Ctrl+h"],
+    "after": ["<left>"]
+  },
+  {
+    //use ctrl+j to move cursor down in insert mode 
+    "before": ["Ctrl+j"],
+    "after": ["<down>"]
+  },
+  {
+    //use ctrl+k to move cursor up in insert mode
+    "before": ["Ctrl+k"],
+    "after": ["<up>"]
+  },
+  {
+    //use ctrl+k to move cursor down in insert mode
+    "before": ["Ctrl+l"],
+    "after": ["<right>"]
+  }
+  ],
+  "vim.smartRelativeLine": true, 
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+        // leader s to save file
+        "before": ["<leader>", "s"],
+        "commands": ["workbench.action.files.save"]
+    }, 
+    {
+        //opens a new tab
+        "before": ["<leader>", "t", "t"],
+        "commands": [":tabnew"]
+    },
+    {
+        //goes to the next tab
+        "before": ["<leader>", "t", "n"],
+        "commands": [":tabnext"]
+    },
+    {
+        //goes to the previous tab
+        "before": ["<leader>", "t", "p"],
+        "commands": [":tabprev"]
+    },
+    {
+        //close all tabs accept the current tab 
+        "before": ["<leader>", "t", "o"],
+        "commands": [":tabo"]
+    },
+    {
+        //no highlighting for current search
+        "before": ["<leader>", "h"],
+        "commands": [":nohl"]
+    },
+    {
+        //comment current line
+        "before": ["<leader>", "c"],
+        "commands": ["editor.action.commentLine"]
+    },
+    {
+        //insert line below in normal mode
+        "before": ["<leader>", "o"],
+        "after": ["o", "<ESC>"]
+    },
+    {
+        //insert line above in normal mode
+        "before": ["<leader>", "O"],
+        "after": ["O", "<ESC>"]
+    },
+    {
+        //insert character next to current position
+        "before": ["<leader>", "a"],
+        "after": ["a", "_", "<ESC>", "r"]
+    },
+    {
+        //insert character current position
+        "before": ["<leader>", "i"],
+        "after": ["i", "_", "<ESC>", "r"]
+    },
+    {
+        //indent current line in normal mode
+        "before": ["<Tab>"],
+        "after": ["i", "Ctrl+t", "<ESC>"]
+    },
+    {
+        //move one identiation level up in normal mode
+        "before": ["<leader>", "<Tab>"],
+        "after": ["i", "Ctrl+d", "<ESC>"]
+    },
+    {
+        //toggle the visibility of the sidebar
+        "before": ["<leader>", "e"],
+        "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+        //reveal the current file in explorer
+        "before": ["<leader>", "f"],
+        "commands": ["revealInExplorer"]
+    },
+    {
+        //rename the current symbol
+        "before": ["<leader>", "r", "e"],
+        "commands": ["editor.action.rename"]
+    }, 
+    {
+        //rename the current file
+        "before": ["<leader>", "r", "f"],
+        "commands": ["fileutils.renameFile"]
+    },
+    {
+        //show all defined symbols
+        "before": ["<leader>", "b", "g"],
+        "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+        //list all files in current editor group
+        "before": ["<leader>", "p"],
+        "commands": ["workbench.action.showEditorsInActiveGroup"]
+    },       
+    {
+        //toggle bookmark 1
+        "before": ["m", "a", "1"],
+        "commands": ["numberedBookmarks.toggleBookmark1"]
+    },
+    {
+        //toggle bookmark 2
+        "before": ["m", "a", "2"],
+        "commands": ["numberedBookmarks.toggleBookmark2"]
+    },
+    {
+        //toggle bookmark 3
+        "before": ["m", "a", "3"],
+        "commands": ["numberedBookmarks.toggleBookmark3"]
+    },
+    {
+        //toggle bookmark 4
+        "before": ["m", "a", "4"],
+        "commands": ["numberedBookmarks.toggleBookmark4"]
+    },
+    {
+        //toggle bookmark 5
+        "before": ["m", "a", "5"],
+        "commands": ["numberedBookmarks.toggleBookmark5"]
+    },
+    {
+        //toggle bookmark 6
+        "before": ["m", "a", "6"],
+        "commands": ["numberedBookmarks.toggleBookmark6"]
+    },
+    {
+        //toggle bookmark 7
+        "before": ["m", "a", "7"],
+        "commands": ["numberedBookmarks.toggleBookmark7"]
+    },
+    {
+        //toggle bookmark 8
+        "before": ["m", "a", "8"],
+        "commands": ["numberedBookmarks.toggleBookmark8"]
+    },
+    {
+        //toggle bookmark 9
+        "before": ["m", "a", "9"],
+        "commands": ["numberedBookmarks.toggleBookmark9"]
+    },
+    {
+        //jump to bookmark 1
+        "before": ["<leader>", "1"],
+        "commands": ["numberedBookmarks.jumpToBookmark1"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 1
+        "before": ["<leader>", "1"],
+        "commands": ["numberedBookmarks.jumpToBookmark1"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 2
+        "before": ["<leader>", "2"],
+        "commands": ["numberedBookmarks.jumpToBookmark2"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 3
+        "before": ["<leader>", "3"],
+        "commands": ["numberedBookmarks.jumpToBookmark3"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 4
+        "before": ["<leader>", "4"],
+        "commands": ["numberedBookmarks.jumpToBookmark4"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 5
+        "before": ["<leader>", "5"],
+        "commands": ["numberedBookmarks.jumpToBookmark5"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 6
+        "before": ["<leader>", "6"],
+        "commands": ["numberedBookmarks.jumpToBookmark6"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 7
+        "before": ["<leader>", "7"],
+        "commands": ["numberedBookmarks.jumpToBookmark7"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 8
+        "before": ["<leader>", "8"],
+        "commands": ["numberedBookmarks.jumpToBookmark8"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        //jump to bookmark 9
+        "before": ["<leader>", "9"],
+        "commands": ["numberedBookmarks.jumpToBookmark9"],
+        "when": "editorTextFocus && vim.active && vim.mode == 'Normal'"
+    }
+   ],
+   "vim.visualModeKeyBindings": [
+    {
+        //comment out many lines in visual mode
+        "before": ["leader", "c"],
+        "commands": ["editor.action.commentLine", "extension.vim_escape"]
+    },
+    ], 
+     "multiCommand.commands": [
+    {
+        //used for special keybinding to maximize panel and focus
+        "command": "multiCommand.toggleMaximizedPanelAndFocusTerminal",
+        "sequence": [
+            "workbench.action.toggleMaximizedPanel",
+            "workbench.action.terminal.focus"
+        ]
+    }
+  ],
+} 
