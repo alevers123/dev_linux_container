@@ -1,9 +1,8 @@
 {
     "name": "DevelopmentContainerEnv",
-    "dockerComposeFile": "../compose.yaml",
-    "service": "docker_dev_container_linux",
-    "workspaceFolder": "/home/aevers/project",
-
+    "dockerComposeFile": "../compose_wsl.yaml",
+    "service": "docker_dev_container_wsl",
+    "workspaceFolder": "/home/aevers/Project",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -21,6 +20,6 @@
             }
         }
     },
-
-    "remoteUser": "aevers"
+    "initializeCommand": "bash .devcontainer/pre_build_vs_code.sh"
+    //"remoteUser": "aevers"
 }

@@ -11,6 +11,8 @@ services:
         uid: $uid
         gid: $gid
         uname: $uname
+        git_email: $git_email
+        git_user: $git_user
         docker_guid: 989
         progress: plain
     image: $image_name
@@ -32,32 +34,10 @@ services:
       - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
       - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
       - PULSE_SERVER=$PULSE_SERVER
+      - HOME=$HOME
     tty: true
     stdin_open: true
-  docker_dev_container_linux:
-    container_name: ${cont_name:-dev_cont}
-    privileged: true
-    build:
-      context: .
-      dockerfile: dev_container.dockerfile
-      args:
-        uid: $uid
-        gid: $gid
-        uname: $uname
-        docker_guid: 989
-        progress: plain
-    image: $image_name
-    network_mode: host
-    volumes:
-      - $HOME/Project:$HOME/Project
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker
-      - /tmp/.X11-unix:/tmp/.X11-unix
-    environment:
-      - DISPLAY=$DISPLAY
-      - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
-    tty: true
-    stdin_open: true
+  
   #networks:
 #  dev_container_netw:
 #    driver: bridge

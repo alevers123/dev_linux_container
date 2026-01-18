@@ -26,6 +26,7 @@ cp /opt/scripts/my-theme.sh /home/$1/.config/tmux-powerline/themes
 cp /opt/scripts/display_times.sh /home/$1/.tmux/plugins/tmux-powerline/segments
 cp /opt/scripts/hostname.sh /home/$1/.tmux/plugins/tmux-powerline/segments
 cp /opt/scripts/keymaps.lua /home/$1/.config/nvim/lua/config
+cp /opt/scripts/options.lua /home/$1/.config/nvim/lua/config
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 sudo curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -85,13 +86,11 @@ chmod +x "${MASON_BIN}/asm-lsp"
 
 echo "asm-lsp installed successfully at ${MASON_BIN}/asm-lsp"
 
-# Install all lazy plugins
-nvim --headless "+Lazy! sync" "+qa"
+# 1. Plugins synchronisieren
+nvim --headless "+Lazy! sync" +qa
 
-# Install all Mason servers
-#nvim --headless "+MasonInstallSync" +qa
-nvim --headless "+MasonToolsInstall" +qa
+# 2. Mason Tools separat installieren (mit automatischem Timeout nach 60s)
+timeout 60s nvim --headless "+MasonToolsInstallSync" +qa || echo "Mason timeout - checking results..."
 
-#Install all treesitter parsers
-nvim --headless "+TSUpdateSync" +Visual +qa
-#nvim --headless +"lua require('nvim-treesitter.install').update({ with_sync = true })" +"sleep 2" +qa!
+# 3. Tree-sitter separat
+nvim --headless "+TSUpdateSync" +qa

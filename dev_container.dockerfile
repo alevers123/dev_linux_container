@@ -30,9 +30,8 @@ ARG uname
 ARG uid
 ARG gid
 ARG docker_guid
-ENV PATH="${HOME}/.local/share/nvim/mason/bin:${PATH}"
-#RUN mkdir /home/$uname
-#VOLUME /home/$uname
+ARG git_user
+ARG git_email
 COPY ./scripts /opt/scripts
 RUN locale-gen en_US.UTF-8
 RUN userdel ubuntu
@@ -40,7 +39,8 @@ RUN addgroup --gid $gid $uname && addgroup --gid $docker_guid docker
 RUN adduser --gecos "" --home /home/$uname --shell /bin/zsh --uid $uid --gid $gid $uname && adduser \
 $uname sudo && adduser $uname docker && passwd -d $uname && chown -R $uname:$uname /home/$uname && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \
 /etc/sudoers
-RUN wget "https://github.com/equalsraf/win32yank/releases/download/v0.1.1/win32yank-x64.zip" && unzip win32yank-x64.zip && mkdir /opt/win_executables && mv win32yank.exe /opt/win_executables/
+RUN git config --global user.name $git_user && git config --global user.email $git_email
+ENV PATH="/home/${uname}/.local/share/nvim/mason/bin:${PATH}"
 ENV PATH="$PATH:/opt/win_executables:/opt/windows"
 USER $uname
 RUN bash /opt/scripts/setup.sh $uname
